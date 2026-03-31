@@ -96,7 +96,8 @@ scroller {
         input-processors = 
             <&sensor_rotation_right>,                           // ← 角度補正はスクロール時も必須！
             <&zip_xy_to_scroll_mapper>,                         // スクロールモードに変更
-            <&zip_scroll_scaler 1 10>;                           // スクロール量を1/4倍
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_scroll_scaler 1 20>;                           // スクロール量を1/4倍
     };
 };
 
