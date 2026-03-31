@@ -68,7 +68,7 @@
 
     input-processors =
             <&sensor_rotation_left>,
-            <&zip_x_scaler 0 1>,
+            <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
@@ -95,7 +95,6 @@ scroller {
         layers = <7>;  // レイヤー7が有効な時だけ発動
         input-processors = 
             <&sensor_rotation_right>,                           // ← 角度補正はスクロール時も必須！
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       // X軸反転
             <&zip_xy_to_scroll_mapper>,                         // スクロールモードに変更
             <&zip_scroll_scaler 1 10>;                           // スクロール量を1/4倍
     };
