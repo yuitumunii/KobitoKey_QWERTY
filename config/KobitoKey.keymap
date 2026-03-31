@@ -33,6 +33,46 @@
         };
     };
 
+ macros {
+        paste_reserch: paste_reserch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LG(C)>,
+                <&macro_wait_time 200>,
+                <&kp LG(T)>,
+                <&macro_wait_time 200>,
+                <&kp LG(V)>,
+                <&macro_wait_time 200>,
+                <&kp ENTER>,
+                <&macro_press>;
+
+            label = "PASTE_RESERCH";
+        };
+
+        pw_mac: pq_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N0 &kp N0 &kp N1 &kp N0 &kp N2 &kp ENTER>;
+            label = "PQ_MAC";
+        };
+
+        pw_plus: pw_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp L &kp U &kp S &kp N1 &kp N0 &kp N2 &kp N0 &kp RETURN>;
+            label = "PW_PLUS";
+        };
+
+        pw_apple: pw_apple {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R &kp LS(I) &kp N1 &kp H &kp N &kp A &kp G &kp T &kp O &kp E &kp RETURN>;
+            label = "PW_APPLE";
+        };
+    };
+};
+
     keymap {
         compatible = "zmk,keymap";
 
