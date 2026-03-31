@@ -33,7 +33,7 @@
         };
     };
 
- macros {
+    macros {
         paste_reserch: paste_reserch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -77,19 +77,19 @@
 
         default_layer {
             bindings = <
-&mt ESC Q           &kp W        &kp E           &kp R         &kp T                       &kp Y        &kp U        &kp I            &kp O          &kp P
-&mt LEFT_CONTROL A  &kp S        &kp D           &kp F         &kp G                       &kp H        &kp J        &kp K            &kp L          &kp MINUS
-&mt LEFT_SHIFT Z    &kp X        &kp C           &kp V         &kp B                       &lt 2 TAB    &lt 2 B      &kp N            &kp M          &mkp LCLK
-&mkp RCLK           &lt 1 ENTER  &kp LEFT_SHIFT  &kp LEFT_ALT  &mt LEFT_COMMAND LG(SPACE)  &lt 1 SPACE  &lt 3 SPACE  &lt 4 BACKSPACE  &kp RIGHT_GUI  &lt 5 ESCAPE
+&mt ESC Q           &kp W         &kp E      &kp R         &kp T        &kp Y        &kp U          &kp I        &kp O          &kp P
+&mt LEFT_CONTROL A  &kp S         &kp D      &kp F         &kp G        &kp H        &kp J          &kp K        &kp L          &kp MINUS
+&mt LEFT_SHIFT Z    &kp X         &kp C      &kp V         &kp B        &kp N        &kp M          &kp COMMA    &kp PERIOD     &lt 1 ENTER
+&kp LEFT_SHIFT      &kp LEFT_ALT  &lt 2 TAB  &kp LEFT_GUI  &lt 1 SPACE  &lt 4 SPACE  &kp BACKSPACE  &lt 2 ENTER  &kp RIGHT_GUI  &lt 6 ESCAPE
             >;
         };
 
         layer_1 {
             bindings = <
-&kp GRAVE     &kp LS(NUMBER_1)      &kp LS(NUMBER_2)      &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(N9)     &kp LS(N0)     &kp BACKSLASH     &kp PLUS           &kp EQUAL
-&kp RC(TAB)   &kp LS(N5)            &kp LS(NUMBER_6)      &kp LS(N7)        &kp LS(N8)        &kp SEMICOLON  &kp SQT        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LS(GRAVE)
-&trans        &kp LG(LS(NUMBER_3))  &kp LG(LS(NUMBER_4))  &kp LG(LS(N5))    &none             &trans         &kp LESS_THAN  &kp GREATER_THAN  &kp COMMA          &kp PERIOD
-&kp QUESTION  &trans                &trans                &trans            &trans            &trans         &trans         &trans            &kp FSLH           &kp LG(BACKSPACE)
+&kp GRAVE    &kp LS(NUMBER_1)      &kp LS(NUMBER_2)      &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(N9)     &kp LS(N0)        &kp BACKSLASH     &kp PLUS           &kp EQUAL
+&kp RC(TAB)  &kp LS(N5)            &kp LS(NUMBER_6)      &kp LS(N7)        &kp LS(N8)        &kp SEMICOLON  &kp SQT           &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LS(GRAVE)
+&trans       &kp LG(LS(NUMBER_3))  &kp LG(LS(NUMBER_4))  &kp LG(LS(N5))    &none             &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION      &kp SLASH          &trans
+&trans       &trans                &trans                &trans            &trans            &trans         &trans            &trans            &trans             &kp LG(BACKSPACE)
             >;
         };
 
@@ -104,6 +104,15 @@
 
         layer_3 {
             bindings = <
+&trans          &trans  &trans        &trans        &trans  &trans    &mkp MB3  &trans  &trans  &trans
+&trans          &trans  &trans        &trans        &trans  &mkp MB1  &mkp MB2  &trans  &trans  &trans
+&trans          &trans  &trans        &trans        &trans  &trans    &trans    &trans  &trans  &trans
+&kp LEFT_SHIFT  &trans  &kp LEFT_ALT  &kp LEFT_GUI  &to 0   &trans    &trans    &trans  &to 0   &kp RIGHT_ALT
+            >;
+        };
+
+        layer_4 {
+            bindings = <
 &trans                &trans             &trans  &trans  &trans  &paste_reserch    &kp LG(W)  &kp LG(R)        &kp LG(T)             &kp LG(Y)
 &trans                &trans             &trans  &trans  &trans  &msc MOVE_Y(-20)  &kp LG(C)  &kp LG(V)        &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP
 &trans                &trans             &trans  &trans  &trans  &trans            &kp GLOBE  &msc MOVE_Y(20)  &kp LS(LG(N))         &kp LG(LS(T))
@@ -111,7 +120,7 @@
             >;
         };
 
-        layer_4 {
+        layer_5 {
             bindings = <
 &none                &kp KP_SLASH             &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LC(UP_ARROW)        &kp LC(LEFT)      &kp UP_ARROW            &kp LC(RIGHT)           &kp LS(LC(SPACE))
 &none                &kp KP_MULTIPLY          &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp LA(LG(LEFT_ARROW))  &kp LEFT_ARROW    &kp DOWN_ARROW          &kp RIGHT_ARROW         &kp LA(LG(RIGHT_ARROW))
@@ -120,7 +129,7 @@
             >;
         };
 
-        layer_5 {
+        layer_6 {
             bindings = <
 &trans     &trans    &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3    &bt BT_SEL 4
 &trans     &trans    &trans  &trans  &trans  &trans        &trans        &sys_reset     &bt BT_CLR_ALL  &bt BT_CLR
