@@ -71,7 +71,6 @@
             label = "PW_APPLE";
         };
     };
-};
 
     keymap {
         compatible = "zmk,keymap";
