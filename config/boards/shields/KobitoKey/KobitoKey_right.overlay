@@ -47,7 +47,7 @@
     input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
 
     scroller {
-        layers = <3>;  //有効化するレイヤーの指定
+        layers = <7>;  //有効化するレイヤーの指定
         input-processors = 
             // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,     //X軸とY軸の入れ替え
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
