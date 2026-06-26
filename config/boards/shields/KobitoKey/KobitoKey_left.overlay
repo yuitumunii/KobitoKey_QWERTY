@@ -85,10 +85,12 @@
 &tb_right_listener {
     status = "okay";
 
-    // 通常時（マウスカーソル移動 ＋ オートマウスレイヤー起動）
+    // 通常時（マウスカーソル移動 ＋ オートマウスレイヤー起動 ＋ ジェスチャー/速度）
     input-processors =
         <&sensor_rotation_right>,
-        <&zip_temp_layer 3 1000>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
+        <&zip_temp_layer 3 1000>,   /* AML: レイヤー3 MOUSE自動 + 滞留時間 */
+        <&zip_keybind_dynamic>,     /* ジェスチャー(GEST3=8/GPAGE=9等)を Forge設定でショートカット変換 */
+        <&zip_pyuron_speed>;        /* カーソル速度の Forge ライブ調整 */
 
 scroller {
         layers = <7>;  // レイヤー7が有効な時だけ発動
@@ -106,4 +108,20 @@ scroller {
         16
         17
     >;
+};
+
+/ {
+    // 動的レイヤー対応ジェスチャープロセッサ(Pyuron overhaul と同じ)。
+    // 方向→ショートカットの割当は ZMK Forge から実行時設定し NVS 保持(再焼き不要)。
+    // guard-layers: 3=MOUSE(AML自動)・7=スクロール は常に素通り(ジェスチャー化しない)。
+    zip_keybind_dynamic: zip_keybind_dynamic {
+        compatible = "zmk,input-processor-keybind-dynamic";
+        #input-processor-cells = <0>;
+        track_remainders;
+        mode = <1>;
+        tick = <180>;
+        tap-ms = <10>;
+        wait-ms = <600>;
+        guard-layers = <3 7>;
+    };
 };
