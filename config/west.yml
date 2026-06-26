@@ -1,37 +1,34 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
+    - name: yuitumunii
+      url-base: https://github.com/yuitumunii
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
     - name: hsgw
       url-base: https://github.com/hsgw
-    - name: caksoylar  # <-- led
-      url-base: https://github.com/caksoylar  
-
   projects:
-    # ZMK 本体。公式の app/west.yml を取り込む
+    # ZMK 本体: Pyuron overhaul fork (macro-overhaul-B / base=zephyr v4.1.0+zmk-fixes)
+    # AML/Timing/macro/combo/tapdance の Forge ライブ調整 RPC + input-stop fix を内包。
+    # app/west.yml が zephyr v4.1 と cormoran zmk-studio-messages を取り込む。
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3
+      remote: yuitumunii
+      revision: e9fcae530ae5938de59bfe3b58713951cbaaf39e
       import: app/west.yml
-
-    # PMW3610 ドライバ（外部モジュール）
+    # PMW3610 ドライバ: live-cpi fork (CPI ライブ調整 RPC・compatible pixart,pmw3610-alt)
     - name: zmk-pmw3610-driver
-      remote: badjeff
-      revision: zmk-0.3
-      # 置き場所を明示したい場合は path を指定（任意）
-      # path: modules/zmk-pmw3610-driver
-    
-    # Sensor-rotation
+      remote: yuitumunii
+      revision: live-cpi
+    # ジェスチャー入力プロセッサ: gesture-overhaul-A (動的 keybind + 感度/割当 RPC)
+    - name: zmk-input-processor-keybind
+      remote: yuitumunii
+      revision: gesture-overhaul-A
+    # LED
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
+    # Sensor-rotation (取付角 -24/+24)。新 base で残せるか段0 build で実測。
     - name: zmk-feature-sensor_rotation
       remote: hsgw
       revision: main
-
-    # LED
-    - name: zmk-rgbled-widget  # <-- led
-      remote: caksoylar
-      revision: v0.3
-      
   self:
     path: config
